@@ -1,10 +1,13 @@
+import Layout from "./layout/Layout";
 import AppProvider from "./provider/AppProvider";
 import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return (
     <AppProvider>
-      <AppRoutes />
+      <Layout>
+        <AppRoutes />
+      </Layout>
     </AppProvider>
   );
 }
