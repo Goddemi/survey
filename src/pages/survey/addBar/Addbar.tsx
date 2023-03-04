@@ -2,8 +2,10 @@ import AddIcon from "../../../icons/AddIcon";
 
 const Addbar = () => {
   return (
-    <div>
-      <AddIcon />
+    <div className="absolute right-1 bg-white rounded-lg">
+      <div className="text-orange-500">
+        <AddIcon />
+      </div>
     </div>
   );
 };

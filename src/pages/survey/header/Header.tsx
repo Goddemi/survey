@@ -1,6 +1,6 @@
 const Header = () => {
   return (
-    <div className="bg-white rounded-lg w-1/2 min-w-max">
+    <div className="w-1/2 min-w-max bg-white rounded-lg ">
       <div className="bg-orange-500 rounded-t-lg h-2"></div>
       <div className="p-5">
         <input
@@ -15,7 +15,5 @@ const Header = () => {
     </div>
   );
 };
-
-// #fe4438;
 
 export default Header;
