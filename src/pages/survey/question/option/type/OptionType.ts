@@ -1,1 +1,1 @@
-export type OptionType = string | null;
+export type OptionType = string;

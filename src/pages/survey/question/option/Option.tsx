@@ -17,8 +17,8 @@ const Option = ({ selectedOption }: { selectedOption: OptionType }) => {
     체크박스: <Checkbox />,
     드롭다운: <Dropdown />,
   };
-
-  //오브젝트의 키 값으로 접근하는 것이 시간복잡도에 있어서 효율적이라고 생각하여 위와 같이 작성하였습니다.
+  // 어떤 옵션을 선택 했냐에 따라 다른 컴포넌트를 보여줄 수 있게 구현한 부분입니다.
+  // 오브젝트를 별도로 만들어 키 값으로 접근하는 것이 시간복잡도에 있어서 효율적이라고 생각하여 위와 같이 작성하였습니다.
 
   return <div> {selectedOption && questionByOption[selectedOption]}</div>;
 };

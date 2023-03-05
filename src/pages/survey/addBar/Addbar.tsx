@@ -1,4 +1,4 @@
-import AddIcon from "../../../icons/AddIcon";
+import { AddIcon } from "../../../icons/Icons";
 
 const Addbar = () => {
   return (
