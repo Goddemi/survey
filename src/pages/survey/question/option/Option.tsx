@@ -1,7 +1,7 @@
 import Checkbox from "./Checkbox";
 import Dropdown from "./Dropdown";
 import LongAnswer from "./LongAnswer";
-import ObjectsAnswer from "./ObjectsAnswer";
+import ObjectsAnswer from "./objectsAnswer/ObjectsAnswer";
 import ShortAnswer from "./ShortAnswer";
 import { OptionType } from "./type/OptionType";
 
