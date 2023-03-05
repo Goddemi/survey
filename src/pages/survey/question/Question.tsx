@@ -17,7 +17,7 @@ const Question = () => {
 
   return (
     <div className="w-1/2 my-3 min-w-max p-5 bg-white rounded-lg ">
-      <div className="flex justify-between">
+      <div className="flex justify-between items-end">
         <QuestionTitle />
         <OptionSelectBox
           optionList={optionList}

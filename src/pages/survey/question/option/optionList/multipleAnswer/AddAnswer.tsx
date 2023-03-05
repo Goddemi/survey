@@ -2,15 +2,11 @@ import { Radio } from "@mui/material";
 import { AnswerType } from "../../type/answerType";
 import { addAnswerHandler } from "./func/addAnswerHandler";
 
-interface Props extends AnswerType {
-  answerRef: React.RefObject<HTMLInputElement>;
-}
-
-const AddAnswer = ({ answers, setAnswers, answerRef }: Props) => {
+const AddAnswer = ({ answers, setAnswers }: AnswerType) => {
   return (
     <div
       className="flex items-center my-2"
-      onClick={() => addAnswerHandler(answers, setAnswers, answerRef)}
+      onClick={() => addAnswerHandler(answers, setAnswers)}
     >
       <Radio disabled />
       <input

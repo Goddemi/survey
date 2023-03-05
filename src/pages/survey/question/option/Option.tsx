@@ -1,7 +1,7 @@
-import Checkbox from "./optionList/Checkbox";
-import Dropdown from "./optionList/Dropdown";
+import CheckBox from "./optionList/checkbox/CheckBox";
+import Dropdown from "./optionList/dropdown/Dropdown";
 import LongAnswer from "./optionList/LongAnswer";
-import MultipleAnswer from "./optionList/objectsAnswer/MultipleAnswer";
+import MultipleAnswer from "./optionList/multipleAnswer/MultipleAnswer";
 import ShortAnswer from "./optionList/ShortAnswer";
 import { OptionType } from "./type/optionType";
 
@@ -14,7 +14,7 @@ const Option = ({ selectedOption }: { selectedOption: OptionType }) => {
     단답형: <ShortAnswer />,
     장문형: <LongAnswer />,
     객관식질문: <MultipleAnswer />,
-    체크박스: <Checkbox />,
+    체크박스: <CheckBox />,
     드롭다운: <Dropdown />,
   };
   // 어떤 옵션을 선택 했냐에 따라 다른 컴포넌트를 보여줄 수 있게 구현한 부분입니다.

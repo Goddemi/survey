@@ -10,7 +10,7 @@ const MultipleAnswer = () => {
     <div>
       {answers.map((ele) => {
         return (
-          <div className="flex justify-between items-center my-2">
+          <div className="flex justify-between items-center my-2" key={ele.id}>
             <Answer
               answers={answers}
               setAnswers={setAnswers}
@@ -25,11 +25,7 @@ const MultipleAnswer = () => {
         );
       })}
 
-      <AddAnswer
-        answers={answers}
-        setAnswers={setAnswers}
-        answerRef={answerRef}
-      />
+      <AddAnswer answers={answers} setAnswers={setAnswers} />
     </div>
   );
 };

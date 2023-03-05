@@ -23,7 +23,11 @@ const OptionSelectBox = (props: PropsType) => {
           onChange={optionHandler}
         >
           {optionList.map((ele) => {
-            return <MenuItem value={ele}>{ele}</MenuItem>;
+            return (
+              <MenuItem value={ele} key={ele}>
+                {ele}
+              </MenuItem>
+            );
           })}
         </Select>
       </FormControl>
