@@ -1,11 +1,10 @@
 import { useState } from "react";
-import QuestionForm from "./questionForm/QuestionForm";
 import Option from "./option/Option";
-import { OptionType } from "./option/type/OptionType";
-import { SelectChangeEvent } from "@mui/material/Select";
 import AdditionalFunc from "./questionForm/\bAdditionalFunc";
 import QuestionTitle from "./questionForm/QuestionTitle";
-import OptionSelectBox from "./questionForm/QuestionForm";
+import OptionSelectBox from "./questionForm/OptionSelectBox";
+import { OptionType } from "./option/type/optionType";
+import { SelectChangeEvent } from "@mui/material/Select";
 
 const Question = () => {
   const optionList = ["단답형", "장문형", "객관식질문", "체크박스", "드롭다운"];

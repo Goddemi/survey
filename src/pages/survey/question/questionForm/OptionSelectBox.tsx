@@ -1,5 +1,5 @@
 import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { OptionType } from "../option/type/OptionType";
+import { OptionType } from "../option/type/optionType";
 import { SelectChangeEvent } from "@mui/material/Select";
 
 interface PropsType {

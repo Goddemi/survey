@@ -1,9 +1,9 @@
-import Checkbox from "./Checkbox";
-import Dropdown from "./Dropdown";
-import LongAnswer from "./LongAnswer";
-import ObjectsAnswer from "./objectsAnswer/ObjectsAnswer";
-import ShortAnswer from "./ShortAnswer";
-import { OptionType } from "./type/OptionType";
+import Checkbox from "./optionList/Checkbox";
+import Dropdown from "./optionList/Dropdown";
+import LongAnswer from "./optionList/LongAnswer";
+import MultipleAnswer from "./optionList/objectsAnswer/MultipleAnswer";
+import ShortAnswer from "./optionList/ShortAnswer";
+import { OptionType } from "./type/optionType";
 
 const Option = ({ selectedOption }: { selectedOption: OptionType }) => {
   interface QuestionByOptionType {
@@ -13,7 +13,7 @@ const Option = ({ selectedOption }: { selectedOption: OptionType }) => {
   const questionByOption: QuestionByOptionType = {
     단답형: <ShortAnswer />,
     장문형: <LongAnswer />,
-    객관식질문: <ObjectsAnswer />,
+    객관식질문: <MultipleAnswer />,
     체크박스: <Checkbox />,
     드롭다운: <Dropdown />,
   };
