@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
-import AddAnswer from "./AddAnswer";
-import Answer from "./Answer";
-import DeleteAnswer from "./DeleteAnswer";
+import AddAnswer from "../../../../../../components/answer/AddAnswer";
+import Answer from "../../../../../../components/answer/Answer";
+import DeleteAnswer from "../../../../../../components/answer/DeleteAnswer";
 
 const MultipleAnswer = () => {
   const [answers, setAnswers] = useState([{ id: "firstAnswer", content: "" }]);

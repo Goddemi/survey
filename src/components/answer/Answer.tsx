@@ -1,7 +1,7 @@
 import { Radio } from "@mui/material";
 import { useEffect, useState } from "react";
 import { addAnswerHandler } from "./func/addAnswerHandler";
-import { AnswerType } from "../../type/answerType";
+import { AnswerType } from "../../pages/survey/question/option/type/answerType";
 
 interface Props extends AnswerType {
   answerRef: React.RefObject<HTMLInputElement>;

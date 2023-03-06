@@ -1,4 +1,4 @@
-import { Answer } from "../../../type/answerType";
+import { Answer } from "../../../pages/survey/question/option/type/answerType";
 
 export const addAnswerHandler = (
   answers: Answer[],

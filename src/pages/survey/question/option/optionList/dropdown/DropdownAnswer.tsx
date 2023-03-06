@@ -1,6 +1,6 @@
 import { Checkbox } from "@mui/material";
 import { useEffect, useState } from "react";
-import { addAnswerHandler } from "../multipleAnswer/func/addAnswerHandler";
+import { addAnswerHandler } from "../../../../../../components/answer/func/addAnswerHandler";
 import { AnswerType } from "../../type/answerType";
 
 interface Props extends AnswerType {

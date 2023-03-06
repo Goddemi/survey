@@ -1,6 +1,6 @@
 import { Checkbox } from "@mui/material";
 import { AnswerType } from "../../type/answerType";
-import { addAnswerHandler } from "../multipleAnswer/func/addAnswerHandler";
+import { addAnswerHandler } from "../../../../../../components/answer/func/addAnswerHandler";
 
 const AddCheckAnswer = ({ answers, setAnswers }: AnswerType) => {
   return (

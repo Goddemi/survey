@@ -1,5 +1,5 @@
 import { Radio } from "@mui/material";
-import { AnswerType } from "../../type/answerType";
+import { AnswerType } from "../../pages/survey/question/option/type/answerType";
 import { addAnswerHandler } from "./func/addAnswerHandler";
 
 const AddAnswer = ({ answers, setAnswers }: AnswerType) => {

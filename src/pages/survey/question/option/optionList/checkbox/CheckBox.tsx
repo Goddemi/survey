@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import DeleteAnswer from "../multipleAnswer/DeleteAnswer";
+import DeleteAnswer from "../../../../../../components/answer/DeleteAnswer";
 import AddCheckAnswer from "./AddCheckAnswer";
 import CheckAnswer from "./CheckAnswer";
 

@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
-import AddAnswer from "../multipleAnswer/AddAnswer";
-import DeleteAnswer from "../multipleAnswer/DeleteAnswer";
+import AddAnswer from "../../../../../../components/answer/AddAnswer";
+import DeleteAnswer from "../../../../../../components/answer/DeleteAnswer";
 import AddDropdown from "./AddDropdown";
 import DropdownAnswer from "./DropdownAnswer";
 

@@ -1,5 +1,5 @@
-import { XIcon } from "../../../../../../icons/Icons";
-import { AnswerType } from "../../type/answerType";
+import { XIcon } from "../../icons/Icons";
+import { AnswerType } from "../../pages/survey/question/option/type/answerType";
 
 interface Props extends AnswerType {
   elementId: string;

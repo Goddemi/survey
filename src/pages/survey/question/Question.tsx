@@ -7,9 +7,9 @@ import { OptionType } from "./option/type/optionType";
 import { SelectChangeEvent } from "@mui/material/Select";
 
 const Question = () => {
-  const optionList = ["단답형", "장문형", "객관식질문", "체크박스", "드롭다운"];
+  const optionList = ["short", "long", "multiple", "checkbox", "dropdown"];
 
-  const [selectedOption, setSelectedOption] = useState<OptionType>("단답형");
+  const [selectedOption, setSelectedOption] = useState<OptionType>("short");
 
   const optionHandler = (event: SelectChangeEvent) => {
     setSelectedOption(event.target.value as OptionType);

@@ -1,5 +1,5 @@
 import { AnswerType } from "../../type/answerType";
-import { addAnswerHandler } from "../multipleAnswer/func/addAnswerHandler";
+import { addAnswerHandler } from "../../../../../../components/answer/func/addAnswerHandler";
 
 const AddDropdown = ({ answers, setAnswers }: AnswerType) => {
   return (
