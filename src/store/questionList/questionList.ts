@@ -18,7 +18,7 @@ export const questionListSlice = createSlice({
   initialState,
   reducers: {
     addQuestionList: (state, action: PayloadAction<any>) => {
-      state.list = [...state, action.payload];
+      state.list = [...state.list, action.payload];
     },
     deleteQuestionList: (state, action: PayloadAction<any>) => {
       state.list = state.list.filter((element: QuestionListType) => {

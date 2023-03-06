@@ -11,14 +11,15 @@ const SurveyPage = () => {
   );
 
   return (
-    <form className="flex flex-col items-center">
+    <form className="flex flex-col items-center ">
       <Header />
-
-      {questionList.map(() => {
-        return <Question />;
-      })}
-
-      <Addbar />
+      <div className="relative">
+        {" "}
+        {questionList.map(() => {
+          return <Question />;
+        })}
+        <Addbar />
+      </div>
     </form>
   );
 };
