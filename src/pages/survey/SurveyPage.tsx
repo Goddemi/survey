@@ -4,6 +4,7 @@ import Header from "./header/Header";
 import Question from "./question/Question";
 
 import { RootState } from "../../store/store";
+import { QuestionType } from "./question/type/questionType";
 
 const SurveyPage = () => {
   const questionList = useSelector(
@@ -15,8 +16,8 @@ const SurveyPage = () => {
       <Header />
       <div className="relative">
         {" "}
-        {questionList.map(() => {
-          return <Question />;
+        {questionList.map((ele: QuestionType) => {
+          return <Question id={ele.id} />;
         })}
         <Addbar />
       </div>

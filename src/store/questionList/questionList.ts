@@ -1,15 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-export interface QuestionListType {
-  id: string;
-  option: string;
-  questionTitle: string;
+import { QuestionType } from "../../pages/survey/question/type/questionType";
+
+interface QuestionListType {
+  list: QuestionType[];
 }
 
-const initialState: any = {
+const initialState: QuestionListType = {
   list: [
-    { id: "firstForm", option: "short", questionTitle: "what is your name" },
+    { id: "firstForm", option: "short", questionName: "what is your name" },
   ],
 };
 
@@ -21,8 +21,8 @@ export const questionListSlice = createSlice({
       state.list = [...state.list, action.payload];
     },
     deleteQuestionList: (state, action: PayloadAction<any>) => {
-      state.list = state.list.filter((element: QuestionListType) => {
-        return element.id !== action.payload.id;
+      state.list = state.list.filter((element: QuestionType) => {
+        return element.id !== action.payload;
       });
     },
   },

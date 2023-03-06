@@ -1,4 +1,4 @@
-const QuestionTitle = () => {
+const QuestionName = () => {
   return (
     <div className="mx-3">
       <input
@@ -9,4 +9,4 @@ const QuestionTitle = () => {
   );
 };
 
-export default QuestionTitle;
+export default QuestionName;
