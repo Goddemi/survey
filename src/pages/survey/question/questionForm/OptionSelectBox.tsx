@@ -1,15 +1,22 @@
 import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { OptionType } from "../option/type/optionType";
 import { SelectChangeEvent } from "@mui/material/Select";
+import { ModifiedAnswerType } from "../type/types";
 
 interface PropsType {
-  optionHandler: (value: SelectChangeEvent) => void;
-  optionList: string[];
   selectedOption: OptionType;
+  setSelectedOption: React.Dispatch<React.SetStateAction<OptionType>>;
+  contentHandler: (ele: ModifiedAnswerType) => void;
 }
 
 const OptionSelectBox = (props: PropsType) => {
-  const { optionHandler, optionList, selectedOption } = props;
+  const optionList = ["short", "long", "multiple", "checkbox", "dropdown"];
+  const { selectedOption, setSelectedOption, contentHandler } = props;
+
+  const optionHandler = (event: SelectChangeEvent) => {
+    setSelectedOption(event.target.value as OptionType);
+    contentHandler({ option: selectedOption });
+  };
 
   return (
     <Box sx={{ minWidth: 120 }}>
@@ -19,7 +26,6 @@ const OptionSelectBox = (props: PropsType) => {
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={selectedOption}
-          label="Age"
           onChange={optionHandler}
         >
           {optionList.map((ele) => {

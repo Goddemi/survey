@@ -2,8 +2,13 @@ import { useRef, useState } from "react";
 import DeleteAnswer from "../../../../../../components/answer/DeleteAnswer";
 import AddCheckAnswer from "./AddCheckAnswer";
 import CheckAnswer from "./CheckAnswer";
+import { ModifiedAnswerType } from "../../../type/types";
 
-const CheckBox = () => {
+const CheckBox = ({
+  contentHandler,
+}: {
+  contentHandler: (ele: ModifiedAnswerType) => void;
+}) => {
   const [answers, setAnswers] = useState([{ id: "firstAnswer", content: "" }]);
   const answerRef = useRef<HTMLInputElement>(null);
   return (

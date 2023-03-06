@@ -2,8 +2,13 @@ import { useRef, useState } from "react";
 import AddAnswer from "../../../../../../components/answer/AddAnswer";
 import Answer from "../../../../../../components/answer/Answer";
 import DeleteAnswer from "../../../../../../components/answer/DeleteAnswer";
+import { ModifiedAnswerType } from "../../../type/types";
 
-const MultipleAnswer = () => {
+const MultipleAnswer = ({
+  contentHandler,
+}: {
+  contentHandler: (ele: ModifiedAnswerType) => void;
+}) => {
   const [answers, setAnswers] = useState([{ id: "firstAnswer", content: "" }]);
   const answerRef = useRef<HTMLInputElement>(null);
   return (

@@ -3,8 +3,13 @@ import AddAnswer from "../../../../../../components/answer/AddAnswer";
 import DeleteAnswer from "../../../../../../components/answer/DeleteAnswer";
 import AddDropdown from "./AddDropdown";
 import DropdownAnswer from "./DropdownAnswer";
+import { ModifiedAnswerType } from "../../../type/types";
 
-const Dropdown = () => {
+const Dropdown = ({
+  contentHandler,
+}: {
+  contentHandler: (ele: ModifiedAnswerType) => void;
+}) => {
   const [answers, setAnswers] = useState([{ id: "firstAnswer", content: "" }]);
   const answerRef = useRef<HTMLInputElement>(null);
   return (

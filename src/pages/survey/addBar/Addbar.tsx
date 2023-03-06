@@ -6,9 +6,7 @@ const Addbar = () => {
   const dispatch = useDispatch();
 
   const addQuestionHandler = () => {
-    const newId = new Date().getTime().toString();
-    const newQuestion = { id: newId, option: "short", questionName: "" };
-    dispatch(addQuestionList(newQuestion));
+    dispatch(addQuestionList());
   };
   return (
     <div

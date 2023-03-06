@@ -1,6 +1,11 @@
 import React from "react";
+import { ModifiedAnswerType } from "../../type/types";
 
-const LongAnswer = () => {
+const LongAnswer = ({
+  contentHandler,
+}: {
+  contentHandler: (ele: ModifiedAnswerType) => void;
+}) => {
   return (
     <textarea
       rows={7}

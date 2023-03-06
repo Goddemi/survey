@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 import Addbar from "./addBar/Addbar";
 import Header from "./header/Header";
-import Question from "./question/Question";
+import QuestionForm from "./question/QuestionForm";
 
 import { RootState } from "../../store/store";
-import { QuestionType } from "./question/type/questionType";
+import { QuestionType } from "./question/type/types";
 
 const SurveyPage = () => {
   const questionList = useSelector(
@@ -15,9 +15,8 @@ const SurveyPage = () => {
     <form className="flex flex-col items-center ">
       <Header />
       <div className="relative">
-        {" "}
         {questionList.map((ele: QuestionType) => {
-          return <Question id={ele.id} />;
+          return <QuestionForm id={ele.id} data={ele} />;
         })}
         <Addbar />
       </div>
