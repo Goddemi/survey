@@ -1,12 +1,13 @@
 import { useDispatch } from "react-redux";
 import { CopyIcon } from "../../../../../icons/Icons";
 import { copyQuestionList } from "../../../../../store/questionList/questionList";
+import { saveContent } from "../../../../../store/surveyContent/contentSaveButton";
 
 const Copy = ({ id }: { id: string }) => {
   const dispatch = useDispatch();
 
   const copyHandler = () => {
-    //여기에 내용을 이 질문지의 정보를 전역상태로 저장중인 거기에 수정을 해줘야 한다.
+    dispatch(saveContent());
     dispatch(copyQuestionList(id));
   };
   return (

@@ -1,24 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface SurveyContentType {
-  value: number;
+  value: boolean;
 }
 
 const initialState: SurveyContentType = {
-  value: 0,
+  value: true,
 };
 
 export const surveyContentSlice = createSlice({
   name: "survey",
   initialState,
   reducers: {
-    SetSurveyContent: (state, action: PayloadAction<number>) => {
-      state.value = action.payload;
+    saveContent: (state) => {
+      state.value = !state.value;
     },
   },
 });
 
-export const { SetSurveyContent } = surveyContentSlice.actions;
+export const { saveContent } = surveyContentSlice.actions;
 
 export default surveyContentSlice.reducer;

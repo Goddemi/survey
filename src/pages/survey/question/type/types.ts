@@ -1,3 +1,4 @@
+import { AnswerType } from "./../option/type/answerType";
 export interface QuestionType {
   id: string;
   option: string;
@@ -5,7 +6,6 @@ export interface QuestionType {
   textAnswer: string;
   multiAnswer: string[] | any;
 }
-
 export interface ModifiedAnswerType {
-  [key: string]: string | string[];
+  [key: string]: string | AnswerType[];
 }

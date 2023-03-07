@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import surveyReducer from "./surveyContent/surveyContent";
+import contentSaveReducer from "./surveyContent/contentSaveButton";
 import questionListReducer from "./questionList/questionList";
 
 export const store = configureStore({
   reducer: {
-    surveyContent: surveyReducer,
+    savebutton: contentSaveReducer,
     questionList: questionListReducer,
   },
 });

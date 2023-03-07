@@ -1,12 +1,11 @@
 import { Radio } from "@mui/material";
-import { AnswerType } from "../../pages/survey/question/option/type/answerType";
-import { addAnswerHandler } from "./func/addAnswerHandler";
-
-const AddAnswer = ({ answers, setAnswers }: AnswerType) => {
+import { addAnswerToList } from "./func/addAnswerHandler";
+import { SetAnswerType } from "../../pages/survey/question/option/type/answerType";
+const AddAnswer = ({ setAnswerList }: SetAnswerType) => {
   return (
     <div
       className="flex items-center my-2"
-      onClick={() => addAnswerHandler(answers, setAnswers)}
+      onClick={() => addAnswerToList(setAnswerList)}
     >
       <Radio disabled />
       <input

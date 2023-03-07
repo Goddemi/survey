@@ -1,15 +1,28 @@
 import { Radio } from "@mui/material";
-import { useEffect, useState } from "react";
-import { addAnswerHandler } from "./func/addAnswerHandler";
+import { useCallback, useEffect, useState } from "react";
+import { addAnswerToList } from "./func/addAnswerHandler";
+import { SetAnswerType } from "../../pages/survey/question/option/type/answerType";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import { ModifiedAnswerType } from "../../pages/survey/question/type/types";
 import { AnswerType } from "../../pages/survey/question/option/type/answerType";
-
-interface Props extends AnswerType {
+interface Props extends SetAnswerType {
+  answerId: string;
+  answerList: AnswerType[];
   answerRef: React.RefObject<HTMLInputElement>;
+  contentHandler: (ele: ModifiedAnswerType) => void;
 }
 
-const Answer = ({ answers, setAnswers, answerRef }: Props) => {
+const Answer = ({
+  answerId,
+  answerList,
+  setAnswerList,
+  answerRef,
+  contentHandler,
+}: Props) => {
   const [selectedValue, setSelectedValue] = useState("");
   const [inputValue, setInputValue] = useState("");
+  const saveBtn = useSelector((state: RootState) => state.savebutton.value);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedValue(event.target.value);
@@ -19,16 +32,35 @@ const Answer = ({ answers, setAnswers, answerRef }: Props) => {
     setInputValue(event.target.value);
   };
 
+  const handleContent = useCallback(() => {
+    setAnswerList((prevAnswerList) => {
+      const newAnswerList = prevAnswerList.map((answer) =>
+        answer.id === answerId ? { ...answer, content: inputValue } : answer
+      );
+      return newAnswerList;
+    });
+  }, [saveBtn]);
+
+  const setContent = useCallback(() => {
+    const newMultiAnswer = { multiAnswer: answerList };
+    console.log("new", newMultiAnswer);
+    contentHandler(newMultiAnswer);
+  }, [saveBtn]);
+
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      addAnswerHandler(answers, setAnswers);
+      addAnswerToList(setAnswerList);
     }
   };
 
   useEffect(() => {
+    handleContent();
+    setContent();
     if (answerRef.current !== null) answerRef.current.focus();
-  }, [answerRef]);
+  }, [saveBtn, answerRef]);
+
+  useEffect(() => {}, []);
 
   return (
     <div className="flex items-center" onKeyDown={handleKeyDown}>

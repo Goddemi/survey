@@ -11,7 +11,7 @@ const initialState: QuestionListType = {
     {
       id: "firstForm",
       option: "short",
-      questionName: "what is your name",
+      questionName: "",
       textAnswer: "",
       multiAnswer: [],
     },

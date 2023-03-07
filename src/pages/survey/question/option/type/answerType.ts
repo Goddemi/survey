@@ -1,8 +1,7 @@
-export interface Answer {
+export interface AnswerType {
   id: string;
   content: string;
 }
-export interface AnswerType {
-  answers: Answer[];
-  setAnswers: React.Dispatch<React.SetStateAction<Answer[]>>;
+export interface SetAnswerType {
+  setAnswerList: React.Dispatch<React.SetStateAction<AnswerType[]>>;
 }

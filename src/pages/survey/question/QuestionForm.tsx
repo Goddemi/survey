@@ -10,13 +10,7 @@ import { QuestionType, ModifiedAnswerType } from "./type/types";
 
 const QuestionForm = ({ id, data }: { id: string; data: QuestionType }) => {
   const [selectedOption, setSelectedOption] = useState<OptionType>("short");
-  const [questionContent, setQuestionContent] = useState({
-    id: id,
-    option: "short",
-    questionName: "",
-    textAnswer: "",
-    multiAnswer: [],
-  });
+  const [questionContent, setQuestionContent] = useState(data);
 
   const contentHandler = (ele: ModifiedAnswerType) => {
     setQuestionContent((prevState) => ({ ...prevState, ...ele }));
@@ -26,7 +20,10 @@ const QuestionForm = ({ id, data }: { id: string; data: QuestionType }) => {
   return (
     <div className="w-1/2 my-3 min-w-max p-5 bg-white rounded-lg ">
       <div className="flex justify-between items-end">
-        <QuestionName contentHandler={contentHandler} />
+        <QuestionName
+          contentHandler={contentHandler}
+          questionName={data.questionName}
+        />
         <OptionSelectBox
           selectedOption={selectedOption}
           setSelectedOption={setSelectedOption}

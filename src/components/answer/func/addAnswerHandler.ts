@@ -1,10 +1,9 @@
-import { Answer } from "../../../pages/survey/question/option/type/answerType";
+import { AnswerType } from "../../../pages/survey/question/option/type/answerType";
 
-export const addAnswerHandler = (
-  answers: Answer[],
-  setAnswers: React.Dispatch<React.SetStateAction<Answer[]>>
+export const addAnswerToList = (
+  setAnswers: React.Dispatch<React.SetStateAction<AnswerType[]>>
 ) => {
   const newId = new Date().getTime().toString();
   const newAnswer = { id: newId, content: "" };
-  setAnswers([...answers, newAnswer]);
+  setAnswers((prevState) => [...prevState, newAnswer]);
 };
