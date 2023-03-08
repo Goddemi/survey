@@ -25,7 +25,7 @@ const QuestionForm = ({ id, data }: { id: string; data: QuestionType }) => {
   console.log(questionList);
 
   return (
-    <div className="w-1/2 my-3 min-w-max p-5 bg-white rounded-lg ">
+    <div className="w-[900px] min-w-max my-2 bg-white rounded-lg p-5 ">
       <div className="flex justify-between items-end">
         <QuestionName
           questionUpdateHandler={questionUpdateHandler}
