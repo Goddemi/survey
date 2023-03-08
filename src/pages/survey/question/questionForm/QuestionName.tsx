@@ -1,19 +1,24 @@
 import { useState } from "react";
-import { ModifiedAnswerType } from "../type/types";
-
+import { useDispatch } from "react-redux";
+import { UpdatedElementType } from "../type/types";
+import { updateQuestionList } from "../../../../store/questionList/questionList";
 const QuestionName = ({
-  contentHandler,
+  questionUpdateHandler,
   questionName,
 }: {
-  contentHandler: (ele: ModifiedAnswerType) => void;
+  questionUpdateHandler: any;
   questionName: string;
 }) => {
   const [inputValue, setInputValue] = useState(questionName);
+  const dispatch = useDispatch();
+
   const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newQuestionName = event.target.value;
     setInputValue(newQuestionName);
-    contentHandler({ questionName: newQuestionName });
+    questionUpdateHandler({ questionName: newQuestionName });
   };
+
+  //입력할 때마다 들어가게 하자.
 
   return (
     <div className="mx-3">

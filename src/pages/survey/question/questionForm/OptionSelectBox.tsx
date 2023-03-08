@@ -1,23 +1,19 @@
 import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { OptionType } from "../option/type/optionType";
 import { SelectChangeEvent } from "@mui/material/Select";
-import { ModifiedAnswerType } from "../type/types";
-import { useEffect, useState } from "react";
 
 interface PropsType {
+  questionUpdateHandler: any;
   selectedOption: OptionType;
-  setSelectedOption: React.Dispatch<React.SetStateAction<OptionType>>;
-  contentHandler: (ele: ModifiedAnswerType) => void;
 }
 
 const OptionSelectBox = (props: PropsType) => {
-  const { selectedOption, setSelectedOption, contentHandler } = props;
+  const { questionUpdateHandler, selectedOption } = props;
   const optionList = ["short", "long", "multiple", "checkbox", "dropdown"];
 
   const optionHandler = (event: SelectChangeEvent) => {
     const newOption = event.target.value as OptionType;
-    setSelectedOption(newOption);
-    contentHandler({ option: newOption });
+    questionUpdateHandler({ option: newOption });
   };
 
   return (

@@ -6,6 +6,8 @@ export interface QuestionType {
   textAnswer: string;
   multiAnswer: string[] | any;
 }
-export interface ModifiedAnswerType {
+export interface UpdatedElementType {
   [key: string]: string | AnswerType[];
 }
+
+export type UpdateType = (ele: UpdatedElementType) => void;

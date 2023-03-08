@@ -13,7 +13,7 @@ const initialState: QuestionListType = {
       option: "short",
       questionName: "",
       textAnswer: "",
-      multiAnswer: [],
+      multiAnswer: [{ id: "firstAnswer", content: "" }],
     },
   ],
 };
@@ -33,11 +33,26 @@ export const questionListSlice = createSlice({
       };
       state.list = [...state.list, newQuestion];
     },
+
+    updateQuestionList: (state, action: PayloadAction<any>) => {
+      state.list = state.list.map((question: QuestionType) => {
+        if (question.id === action.payload.id) {
+          return {
+            ...question,
+            ...action.payload,
+          };
+        } else {
+          return question;
+        }
+      });
+    },
+
     deleteQuestionList: (state, action: PayloadAction<any>) => {
       state.list = state.list.filter((element: QuestionType) => {
         return element.id !== action.payload;
       });
     },
+
     copyQuestionList: (state, action: PayloadAction<any>) => {
       const copyQuestion = state.list.filter((element: QuestionType) => {
         return element.id === action.payload;
@@ -50,7 +65,11 @@ export const questionListSlice = createSlice({
   },
 });
 
-export const { addQuestionList, deleteQuestionList, copyQuestionList } =
-  questionListSlice.actions;
+export const {
+  addQuestionList,
+  deleteQuestionList,
+  updateQuestionList,
+  copyQuestionList,
+} = questionListSlice.actions;
 
 export default questionListSlice.reducer;

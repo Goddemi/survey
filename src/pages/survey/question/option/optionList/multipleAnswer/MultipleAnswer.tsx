@@ -1,50 +1,63 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
+import { useSelector } from "react-redux";
 import AddAnswer from "../../../../../../components/answer/AddAnswer";
 import Answer from "../../../../../../components/answer/Answer";
 import DeleteAnswer from "../../../../../../components/answer/DeleteAnswer";
-
-import { ModifiedAnswerType } from "../../../type/types";
+import { RootState } from "../../../../../../store/store";
+import { AnswerType } from "../../type/answerType";
+import { UpdateType } from "../../../type/types";
 
 const MultipleAnswer = ({
-  contentHandler,
+  questionId,
+  selectedOption,
+  questionUpdateHandler,
 }: {
-  contentHandler: (ele: ModifiedAnswerType) => void;
+  questionId: string;
+  selectedOption: string;
+  questionUpdateHandler: UpdateType;
 }) => {
-  const [answerList, setAnswerList] = useState([
-    { id: "firstAnswer", content: "" },
-  ]);
   const answerRef = useRef<HTMLInputElement>(null);
-  console.log(answerList);
+
+  const questionList = useSelector(
+    (state: RootState) => state.questionList.list
+  );
+  const answerList = questionList.filter(
+    (question) => question.id === questionId
+  )[0].multiAnswer;
+
+  const addAnswerToList = () => {
+    const newId = new Date().getTime().toString();
+    questionUpdateHandler({
+      multiAnswer: [...answerList, { id: newId, content: "" }],
+    });
+  };
 
   return (
     <div>
-      {answerList.map((ele) => {
+      {answerList.map((ele: AnswerType) => {
         return (
           <div className="flex justify-between items-center my-2" key={ele.id}>
             <Answer
               answerId={ele.id}
               answerList={answerList}
-              setAnswerList={setAnswerList}
               answerRef={answerRef}
-              contentHandler={contentHandler}
+              selectedOption={selectedOption}
+              questionUpdateHandler={questionUpdateHandler}
+              addAnswerToList={addAnswerToList}
+              answerContent={ele.content}
             />
             <DeleteAnswer
               elementId={ele.id}
               answerList={answerList}
-              setAnswerList={setAnswerList}
+              questionUpdateHandler={questionUpdateHandler}
             />
           </div>
         );
       })}
 
-      <AddAnswer setAnswerList={setAnswerList} />
+      <AddAnswer addAnswerToList={addAnswerToList} />
     </div>
   );
 };
 
 export default MultipleAnswer;
-// setQuestionContent((prevState) => ({ ...prevState, ...ele }));
-//ele 의 형식은 {mulitAnswer : [{}, {}]}
-
-// contentHandler()
-//answer가 추가되고, 추가될 때마다 contentHandler에 추가되는 것.

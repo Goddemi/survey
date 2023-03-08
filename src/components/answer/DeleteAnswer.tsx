@@ -1,18 +1,20 @@
 import { XIcon } from "../../icons/Icons";
-import {
-  SetAnswerType,
-  AnswerType,
-} from "../../pages/survey/question/option/type/answerType";
-
-interface Props extends SetAnswerType {
+import { AnswerType } from "../../pages/survey/question/option/type/answerType";
+import { UpdateType } from "../../pages/survey/question/type/types";
+interface Props {
   answerList: AnswerType[];
   elementId: string;
+  questionUpdateHandler: UpdateType;
 }
 
-const DeleteAnswer = ({ answerList, setAnswerList, elementId }: Props) => {
+const DeleteAnswer = ({
+  answerList,
+  elementId,
+  questionUpdateHandler,
+}: Props) => {
   const handleDelete = (id: string) => {
     const deletedAnswers = answerList.filter((answer) => answer.id !== id);
-    setAnswerList(deletedAnswers);
+    questionUpdateHandler({ multiAnswer: deletedAnswers });
   };
   return (
     <span

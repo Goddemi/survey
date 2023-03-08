@@ -1,14 +1,14 @@
 import React from "react";
-import { ModifiedAnswerType } from "../../type/types";
+import { UpdateType } from "../../type/types";
 
 const LongAnswer = ({
-  contentHandler,
+  questionUpdateHandler,
 }: {
-  contentHandler: (ele: ModifiedAnswerType) => void;
+  questionUpdateHandler: UpdateType;
 }) => {
   const inputHandler = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     const inputValue = event.target.value;
-    contentHandler({ textAnswer: inputValue });
+    questionUpdateHandler({ textAnswer: inputValue });
   };
   return (
     <textarea

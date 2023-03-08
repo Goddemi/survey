@@ -6,34 +6,43 @@ import Delete from "./questionForm/additionalFunc/Delete";
 import Copy from "./questionForm/additionalFunc/Copy";
 import Essential from "./questionForm/additionalFunc/Essential";
 import { OptionType } from "./option/type/optionType";
-import { QuestionType, ModifiedAnswerType } from "./type/types";
+import { QuestionType, UpdatedElementType } from "./type/types";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../store/store";
+import { updateQuestionList } from "../../../store/questionList/questionList";
+import { AnswerType } from "./option/type/answerType";
 
 const QuestionForm = ({ id, data }: { id: string; data: QuestionType }) => {
-  const [selectedOption, setSelectedOption] = useState<OptionType>("short");
-  const [questionContent, setQuestionContent] = useState(data);
+  const dispatch = useDispatch();
+  const { questionName, option } = data;
 
-  const contentHandler = (ele: ModifiedAnswerType) => {
-    setQuestionContent((prevState) => ({ ...prevState, ...ele }));
+  const questionList = useSelector(
+    (state: RootState) => state.questionList.list
+  );
+
+  const questionUpdateHandler = (ele: UpdatedElementType) => {
+    dispatch(updateQuestionList({ ...data, ...ele }));
   };
-  console.log(questionContent);
+
+  console.log(questionList);
 
   return (
     <div className="w-1/2 my-3 min-w-max p-5 bg-white rounded-lg ">
       <div className="flex justify-between items-end">
         <QuestionName
-          contentHandler={contentHandler}
-          questionName={data.questionName}
+          questionUpdateHandler={questionUpdateHandler}
+          questionName={questionName}
         />
         <OptionSelectBox
-          selectedOption={selectedOption}
-          setSelectedOption={setSelectedOption}
-          contentHandler={contentHandler}
+          questionUpdateHandler={questionUpdateHandler}
+          selectedOption={option}
         />
       </div>
 
       <AnswerForm
-        selectedOption={selectedOption}
-        contentHandler={contentHandler}
+        questionId={id}
+        questionUpdateHandler={questionUpdateHandler}
+        selectedOption={option}
       />
 
       <div className="w-full flex justify-end items-center border-t-2 border-solid border-gray-200 mt-10 pt-3">
