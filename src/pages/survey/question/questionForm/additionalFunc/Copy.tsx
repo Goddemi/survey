@@ -3,12 +3,12 @@ import { CopyIcon } from "../../../../../icons/Icons";
 import { copyQuestionList } from "../../../../../store/questionList/questionList";
 import { saveContent } from "../../../../../store/surveyContent/contentSaveButton";
 
-const Copy = ({ id }: { id: string }) => {
+const Copy = ({ questionId }: { questionId: string }) => {
   const dispatch = useDispatch();
 
   const copyHandler = () => {
     dispatch(saveContent());
-    dispatch(copyQuestionList(id));
+    dispatch(copyQuestionList(questionId));
   };
   return (
     <div className="cursor-pointer" onClick={copyHandler}>

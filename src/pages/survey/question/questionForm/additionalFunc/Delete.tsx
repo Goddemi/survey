@@ -2,11 +2,11 @@ import { useDispatch } from "react-redux";
 import { DeleteIcon } from "../../../../../icons/Icons";
 import { deleteQuestionList } from "../../../../../store/questionList/questionList";
 
-const Delete = ({ id }: { id: string }) => {
+const Delete = ({ questionId }: { questionId: string }) => {
   const dispatch = useDispatch();
 
   const deleteHandler = () => {
-    dispatch(deleteQuestionList(id));
+    dispatch(deleteQuestionList(questionId));
   };
 
   return (

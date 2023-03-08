@@ -10,7 +10,7 @@ const Addbar = () => {
   };
   return (
     <div
-      className="absolute -right-11 bg-white rounded-lg p-2 text-orange-500 cursor-pointer"
+      className="absolute -right-11 bottom-3 p-2 bg-white  text-orange-500 rounded-lg cursor-pointer"
       onClick={addQuestionHandler}
     >
       <AddIcon />

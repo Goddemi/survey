@@ -1,16 +1,14 @@
-import { useState } from "react";
 import AnswerForm from "./option/AnswerForm";
 import QuestionName from "./questionForm/QuestionName";
 import OptionSelectBox from "./questionForm/OptionSelectBox";
 import Delete from "./questionForm/additionalFunc/Delete";
 import Copy from "./questionForm/additionalFunc/Copy";
 import Essential from "./questionForm/additionalFunc/Essential";
-import { OptionType } from "./option/type/optionType";
+
 import { QuestionType, UpdatedElementType } from "./type/types";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { updateQuestionList } from "../../../store/questionList/questionList";
-import { AnswerType } from "./option/type/answerType";
 
 const QuestionForm = ({ id, data }: { id: string; data: QuestionType }) => {
   const dispatch = useDispatch();
@@ -46,8 +44,8 @@ const QuestionForm = ({ id, data }: { id: string; data: QuestionType }) => {
       />
 
       <div className="w-full flex justify-end items-center border-t-2 border-solid border-gray-200 mt-10 pt-3">
-        <Copy id={id} />
-        <Delete id={id} />
+        <Copy questionId={id} />
+        <Delete questionId={id} />
         <Essential />
       </div>
     </div>
