@@ -28,19 +28,21 @@ const RadioAnswer = ({
 
   return (
     <>
-      <div className="flex items-center">
-        <FormControlLabel
-          label={answerContent}
-          control={
-            <Checkbox
-              checked={checkedState}
-              onChange={handleCheck}
-              icon={<RadioButtonUnchecked />}
-              checkedIcon={<RadioButtonChecked />}
-            />
-          }
-        />
-      </div>
+      {answerContent && (
+        <div className="flex items-center">
+          <FormControlLabel
+            label={answerContent}
+            control={
+              <Checkbox
+                checked={checkedState}
+                onChange={handleCheck}
+                icon={<RadioButtonUnchecked />}
+                checkedIcon={<RadioButtonChecked />}
+              />
+            }
+          />
+        </div>
+      )}
     </>
   );
 };

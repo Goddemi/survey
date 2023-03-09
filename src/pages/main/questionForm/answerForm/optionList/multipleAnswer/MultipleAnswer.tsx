@@ -1,8 +1,10 @@
 import { useRef } from "react";
 import { useSelector } from "react-redux";
 import AddAnswer from "./components/AddAnswer";
-import Answer from "./components/Answer";
+import AnswerInput from "./components/AnswerInput";
 import DeleteAnswer from "./components/DeleteAnswer";
+import { Checkbox } from "@mui/material";
+import { RadioButtonChecked, RadioButtonUnchecked } from "@mui/icons-material";
 import { RootState } from "../../../../../../store/store";
 import { AnswerType, UpdateType } from "../../../../../../type/types";
 
@@ -32,34 +34,41 @@ const MultipleAnswer = ({
   };
 
   return (
-    <>
-      <div>
-        {answerList.map((ele: AnswerType) => {
-          return (
-            <div
-              className="flex justify-between items-center my-2"
-              key={ele.id}
-            >
-              <Answer
-                answerId={ele.id}
+    <div>
+      {answerList.map((answer: AnswerType) => {
+        const { id, content } = answer;
+        return (
+          <div className="flex justify-between items-center my-2" key={id}>
+            <div className="flex items-center">
+              {selectedOption === "multiple" && (
+                <Checkbox
+                  icon={<RadioButtonUnchecked />}
+                  checkedIcon={<RadioButtonChecked />}
+                  disabled
+                />
+              )}
+              {selectedOption === "checkbox" && <Checkbox disabled />}
+              {selectedOption === "dropdown" && <span>-</span>}
+              <AnswerInput
+                answerId={id}
+                answerContent={content}
                 answerList={answerList}
                 answerRef={answerRef}
-                selectedOption={selectedOption}
                 questionUpdateHandler={questionUpdateHandler}
                 addAnswerToList={addAnswerToList}
-                answerContent={ele.content}
-              />
-              <DeleteAnswer
-                elementId={ele.id}
-                answerList={answerList}
-                questionUpdateHandler={questionUpdateHandler}
               />
             </div>
-          );
-        })}
-        <AddAnswer addAnswerToList={addAnswerToList} />
-      </div>
-    </>
+
+            <DeleteAnswer
+              elementId={id}
+              answerList={answerList}
+              questionUpdateHandler={questionUpdateHandler}
+            />
+          </div>
+        );
+      })}
+      <AddAnswer addAnswerToList={addAnswerToList} />
+    </div>
   );
 };
 

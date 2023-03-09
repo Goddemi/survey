@@ -23,12 +23,12 @@ const PreMultipleAnswer = ({
   )[0].multiAnswer;
 
   return (
-    <div className="flex justify-between items-center my-2">
+    <>
       {selectedOption === "checkbox" &&
         answerList.map((ele: AnswerType) => {
           const { id, content } = ele;
           return (
-            <div key={id}>
+            <div key={id} className="flex justify-between items-center my-2">
               <CheckBoxAnswer
                 answerId={id}
                 answerContent={content}
@@ -43,7 +43,7 @@ const PreMultipleAnswer = ({
         answerList.map((ele: AnswerType) => {
           const { id, content } = ele;
           return (
-            <div key={id}>
+            <div key={id} className="flex justify-between items-center my-2">
               <RadioAnswer
                 answerId={id}
                 answerContent={content}
@@ -60,7 +60,7 @@ const PreMultipleAnswer = ({
           questionUpdateHandler={questionUpdateHandler}
         />
       )}
-    </div>
+    </>
   );
 };
 

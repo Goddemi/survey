@@ -26,12 +26,14 @@ const CheckBoxAnswer = ({
 
   return (
     <>
-      <div className="flex items-center">
-        <FormControlLabel
-          label={answerContent}
-          control={<Checkbox checked={checkedState} onChange={handleCheck} />}
-        />
-      </div>
+      {answerContent && (
+        <div className="flex items-center">
+          <FormControlLabel
+            label={answerContent}
+            control={<Checkbox checked={checkedState} onChange={handleCheck} />}
+          />
+        </div>
+      )}
     </>
   );
 };

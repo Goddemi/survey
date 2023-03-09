@@ -1,23 +1,19 @@
-import { Checkbox } from "@mui/material";
 import { useEffect } from "react";
 import { UpdateType, AnswerType } from "../../../../../../../type/types";
-import { RadioButtonChecked, RadioButtonUnchecked } from "@mui/icons-material";
 
 interface Props {
   answerId: string;
   answerList: AnswerType[];
   answerRef: React.RefObject<HTMLInputElement>;
-  selectedOption: string;
   questionUpdateHandler: UpdateType;
   addAnswerToList: () => void;
   answerContent: any;
 }
 
-const Answer = ({
+const AnswerInput = ({
   answerId,
   answerList,
   answerRef,
-  selectedOption,
   questionUpdateHandler,
   addAnswerToList,
   answerContent,
@@ -47,27 +43,15 @@ const Answer = ({
   }, [answerRef]);
 
   return (
-    <div className="flex items-center">
-      {selectedOption === "checkbox" && <Checkbox disabled />}
-      {selectedOption === "dropdown" && <span>-</span>}
-      {selectedOption === "multiple" && (
-        <Checkbox
-          icon={<RadioButtonUnchecked />}
-          checkedIcon={<RadioButtonChecked />}
-          disabled
-        />
-      )}
-
-      <input
-        className="w-[700px] p-2 focus:border-b-2 focus:outline-none"
-        placeholder="답변 입력"
-        onKeyDown={handleKeyPress}
-        onChange={handleInput}
-        value={answerContent}
-        ref={answerRef}
-      />
-    </div>
+    <input
+      className="w-[700px] p-2 focus:border-b-2 focus:outline-none"
+      placeholder="답변 입력"
+      onKeyDown={handleKeyPress}
+      onChange={handleInput}
+      value={answerContent}
+      ref={answerRef}
+    />
   );
 };
 
-export default Answer;
+export default AnswerInput;

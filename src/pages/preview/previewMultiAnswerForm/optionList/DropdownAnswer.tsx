@@ -23,17 +23,13 @@ const DropdownAnswer = ({ answerList, questionUpdateHandler }: Props) => {
 
   return (
     <div className="mt-5 ml-3">
-      <Box sx={{ minWidth: 200 }}>
+      <Box sx={{ minWidth: 200, maxWidth: 220 }}>
         <InputLabel>Select an option</InputLabel>
         <FormControl fullWidth>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={checkedState}
-            onChange={handleChange}
-          >
+          <Select value={checkedState} onChange={handleChange}>
             {answerList.map((ele) => {
               const { id, content } = ele;
+              if (!content) return;
               return (
                 <MenuItem key={id} value={content}>
                   {content}
