@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { QuestionType } from "../../pages/main/question/type/types";
-
+import { QuestionType } from "../../type/types";
 interface QuestionListType {
   list: QuestionType[];
 }

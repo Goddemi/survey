@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import Addbar from "./addBar/Addbar";
-import Header from "./header/Header";
-import QuestionForm from "./question/QuestionForm";
+import Addbar from "./components/Addbar";
+import Header from "./components/Header";
+import QuestionForm from "./questionForm/QuestionForm";
+import GoToPreviewBtn from "./components/GoToPreviewBtn";
 import { RootState } from "../../store/store";
-import { QuestionType } from "./question/type/types";
-import GoToPreview from "./goToPreview/goToPreview";
+import { QuestionType } from "../../type/types";
 
 const SurveyPage = () => {
   const questionList = useSelector(
@@ -16,11 +16,11 @@ const SurveyPage = () => {
       <Header />
       <div className="relative">
         {questionList.map((ele: QuestionType) => {
-          return <QuestionForm id={ele.id} data={ele} />;
+          return <QuestionForm key={ele.id} id={ele.id} data={ele} />;
         })}
         <Addbar />
       </div>
-      <GoToPreview />
+      <GoToPreviewBtn />
     </form>
   );
 };

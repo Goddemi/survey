@@ -1,9 +1,8 @@
-import React from "react";
 import { useSelector } from "react-redux";
-import Header from "../\bmain/header/Header";
-import QuestionForm from "../\bmain/question/QuestionForm";
+import Header from "../main/components/Header";
+import QuestionForm from "../main/questionForm/QuestionForm";
 import { RootState } from "../../store/store";
-import { QuestionType } from "../\bmain/question/type/types";
+import { QuestionType } from "../../type/types";
 
 const PreviewPage = () => {
   const questionList = useSelector(
@@ -15,7 +14,7 @@ const PreviewPage = () => {
       <Header />
       <div className="relative">
         {questionList.map((ele: QuestionType) => {
-          return <QuestionForm id={ele.id} data={ele} />;
+          return <QuestionForm key={ele.id} id={ele.id} data={ele} />;
         })}
       </div>
     </form>
