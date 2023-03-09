@@ -1,7 +1,7 @@
 import { Checkbox, Radio } from "@mui/material";
 import { useEffect, useState } from "react";
-import { UpdateType } from "../../pages/survey/question/type/types";
-import { AnswerType } from "../../pages/survey/question/option/type/answerType";
+import { UpdateType } from "../../pages/main/question/type/types";
+import { AnswerType } from "../../pages/main/question/option/type/answerType";
 
 interface Props {
   answerId: string;
@@ -47,7 +47,7 @@ const Answer = ({
   useEffect(() => {
     if (answerRef.current !== null) answerRef.current.focus();
   }, [answerRef]);
-  console.log(selectedOption);
+
   return (
     <div className="flex items-center" onKeyDown={handleKeyDown}>
       {selectedOption === "checkbox" && <Checkbox disabled />}

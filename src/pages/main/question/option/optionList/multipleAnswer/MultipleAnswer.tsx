@@ -33,30 +33,34 @@ const MultipleAnswer = ({
   };
 
   return (
-    <div>
-      {answerList.map((ele: AnswerType) => {
-        return (
-          <div className="flex justify-between items-center my-2" key={ele.id}>
-            <Answer
-              answerId={ele.id}
-              answerList={answerList}
-              answerRef={answerRef}
-              selectedOption={selectedOption}
-              questionUpdateHandler={questionUpdateHandler}
-              addAnswerToList={addAnswerToList}
-              answerContent={ele.content}
-            />
-            <DeleteAnswer
-              elementId={ele.id}
-              answerList={answerList}
-              questionUpdateHandler={questionUpdateHandler}
-            />
-          </div>
-        );
-      })}
-
-      <AddAnswer addAnswerToList={addAnswerToList} />
-    </div>
+    <>
+      <div>
+        {answerList.map((ele: AnswerType) => {
+          return (
+            <div
+              className="flex justify-between items-center my-2"
+              key={ele.id}
+            >
+              <Answer
+                answerId={ele.id}
+                answerList={answerList}
+                answerRef={answerRef}
+                selectedOption={selectedOption}
+                questionUpdateHandler={questionUpdateHandler}
+                addAnswerToList={addAnswerToList}
+                answerContent={ele.content}
+              />
+              <DeleteAnswer
+                elementId={ele.id}
+                answerList={answerList}
+                questionUpdateHandler={questionUpdateHandler}
+              />
+            </div>
+          );
+        })}
+        <AddAnswer addAnswerToList={addAnswerToList} />
+      </div>
+    </>
   );
 };
 

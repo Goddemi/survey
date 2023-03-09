@@ -1,12 +1,11 @@
+import React from "react";
 import { useSelector } from "react-redux";
-import Addbar from "./addBar/Addbar";
-import Header from "./header/Header";
-import QuestionForm from "./question/QuestionForm";
-
+import Header from "../\bmain/header/Header";
+import QuestionForm from "../\bmain/question/QuestionForm";
 import { RootState } from "../../store/store";
-import { QuestionType } from "./question/type/types";
+import { QuestionType } from "../\bmain/question/type/types";
 
-const SurveyPage = () => {
+const PreviewPage = () => {
   const questionList = useSelector(
     (state: RootState) => state.questionList.list
   );
@@ -18,10 +17,9 @@ const SurveyPage = () => {
         {questionList.map((ele: QuestionType) => {
           return <QuestionForm id={ele.id} data={ele} />;
         })}
-        <Addbar />
       </div>
     </form>
   );
 };
 
-export default SurveyPage;
+export default PreviewPage;

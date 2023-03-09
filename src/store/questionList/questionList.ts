@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { QuestionType } from "../../pages/survey/question/type/types";
+import { QuestionType } from "../../pages/main/question/type/types";
 
 interface QuestionListType {
   list: QuestionType[];
@@ -13,7 +13,7 @@ const initialState: QuestionListType = {
       option: "short",
       questionName: "",
       textAnswer: "",
-      multiAnswer: [{ id: "firstAnswer", content: "" }],
+      multiAnswer: [{ id: "firstAnswer", content: "", checked: false }],
     },
   ],
 };

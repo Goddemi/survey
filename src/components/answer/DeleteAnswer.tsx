@@ -1,6 +1,6 @@
 import { XIcon } from "../../icons/Icons";
-import { AnswerType } from "../../pages/survey/question/option/type/answerType";
-import { UpdateType } from "../../pages/survey/question/type/types";
+import { AnswerType } from "../../pages/main/question/option/type/answerType";
+import { UpdateType } from "../../pages/main/question/type/types";
 interface Props {
   answerList: AnswerType[];
   elementId: string;

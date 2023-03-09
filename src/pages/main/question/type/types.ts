@@ -1,4 +1,4 @@
-import { AnswerType } from "./../option/type/answerType";
+import { AnswerType } from "../option/type/answerType";
 export interface QuestionType {
   id: string;
   option: string;
