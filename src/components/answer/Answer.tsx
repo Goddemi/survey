@@ -37,10 +37,15 @@ const Answer = ({
     questionUpdateHandler({ multiAnswer: newAnswerList });
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyPress = (event: any) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      addAnswerToList();
+      if (!event.currentTarget.value.trim().length) {
+        return;
+      }
+      if (!event.nativeEvent.isComposing) {
+        addAnswerToList();
+      }
     }
   };
 
@@ -49,7 +54,7 @@ const Answer = ({
   }, [answerRef]);
 
   return (
-    <div className="flex items-center" onKeyDown={handleKeyDown}>
+    <div className="flex items-center">
       {selectedOption === "checkbox" && <Checkbox disabled />}
       {selectedOption === "dropdown" && <span>-</span>}
       {selectedOption === "multiple" && (
@@ -64,6 +69,7 @@ const Answer = ({
       <input
         className="w-[700px] p-2 focus:border-b-2 focus:outline-none"
         placeholder="답변 입력"
+        onKeyDown={handleKeyPress}
         onChange={handleInput}
         value={inputValue}
         ref={answerRef}
