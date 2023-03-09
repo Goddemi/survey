@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import Addbar from "./components/Addbar";
 import Header from "./components/Header";
 import QuestionForm from "./questionForm/QuestionForm";
-import GoToPreviewBtn from "./components/GoToPreviewBtn";
+import LinkBtn from "../../components/LinkBtn";
 import { RootState } from "../../store/store";
 import { QuestionType } from "../../type/types";
 
@@ -20,7 +20,7 @@ const SurveyPage = () => {
         })}
         <Addbar />
       </div>
-      <GoToPreviewBtn />
+      <LinkBtn to={"/preview"} />
     </form>
   );
 };

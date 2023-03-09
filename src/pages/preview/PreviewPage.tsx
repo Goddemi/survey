@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import Header from "../main/components/Header";
 import QuestionForm from "../main/questionForm/QuestionForm";
+import LinkBtn from "../../components/LinkBtn";
 import { RootState } from "../../store/store";
 import { QuestionType } from "../../type/types";
 
@@ -17,6 +18,7 @@ const PreviewPage = () => {
           return <QuestionForm key={ele.id} id={ele.id} data={ele} />;
         })}
       </div>
+      <LinkBtn to={"/preview/submit"} />
     </form>
   );
 };

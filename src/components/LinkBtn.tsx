@@ -1,14 +1,13 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
-const GoToPreviewBtn = () => {
+const LinkBtn = ({ to }: { to: string }) => {
   return (
-    <Link to="/preview">
+    <Link to={to}>
       <button className="mt-3 p-4 bg-orange-500 text-white font-semibold rounded-lg ">
-        미리보기
+        {to === "/preview" ? "미리보기" : "제출"}
       </button>
     </Link>
   );
 };
 
-export default GoToPreviewBtn;
+export default LinkBtn;
