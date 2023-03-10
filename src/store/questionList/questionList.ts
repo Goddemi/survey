@@ -13,6 +13,7 @@ const initialState: QuestionListType = {
       questionName: "",
       textAnswer: "",
       multiAnswer: [{ id: "firstAnswer", content: "", checked: false }],
+      essential: true,
     },
   ],
 };
@@ -23,13 +24,7 @@ export const questionListSlice = createSlice({
   reducers: {
     addQuestionList: (state) => {
       const newId = new Date().getTime().toString();
-      const newQuestion = {
-        id: newId,
-        option: "short",
-        questionName: "",
-        textAnswer: "",
-        multiAnswer: [],
-      };
+      const newQuestion = { ...initialState.list[0], id: newId };
       state.list = [...state.list, newQuestion];
     },
 
@@ -58,7 +53,6 @@ export const questionListSlice = createSlice({
       });
       const newId = new Date().getTime().toString();
       const newCopyQuestion = { ...copyQuestion[0], id: newId };
-
       state.list = [...state.list, newCopyQuestion];
     },
   },

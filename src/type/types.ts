@@ -5,7 +5,8 @@ export interface QuestionType {
   option: string;
   questionName: string;
   textAnswer: string;
-  multiAnswer: string[] | any;
+  multiAnswer: AnswerType[];
+  essential: boolean;
 }
 export interface AnswerType {
   id: string;
@@ -14,7 +15,7 @@ export interface AnswerType {
 }
 
 export interface UpdatedElementType {
-  [key: string]: string | AnswerType[];
+  [key: string]: string | AnswerType[] | boolean;
 }
 
 export type UpdateType = (ele: UpdatedElementType) => void;

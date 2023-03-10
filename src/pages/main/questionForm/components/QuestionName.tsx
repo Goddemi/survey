@@ -1,13 +1,14 @@
 import { useState } from "react";
+import { UpdateType } from "../../../../type/types";
 
 const QuestionName = ({
   currentPath,
-  questionUpdateHandler,
   questionName,
+  questionUpdateHandler,
 }: {
   currentPath: string;
-  questionUpdateHandler: any;
   questionName: string;
+  questionUpdateHandler: UpdateType;
 }) => {
   const [inputValue, setInputValue] = useState(questionName);
 
@@ -19,21 +20,13 @@ const QuestionName = ({
 
   return (
     <div>
-      {currentPath === "/preview" ? (
-        <input
-          className="w-[500px] py-2 border-b border-gray-300 focus:outline-none focus:border-orange-500"
-          placeholder="질문"
-          value={inputValue}
-          disabled
-        />
-      ) : (
-        <input
-          className="w-[500px] py-2 border-b border-gray-300 focus:outline-none focus:border-orange-500"
-          placeholder="질문"
-          value={inputValue}
-          onChange={inputHandler}
-        />
-      )}
+      <input
+        className="w-[500px] py-2 border-b border-gray-300 focus:outline-none focus:border-orange-500"
+        placeholder="질문"
+        value={inputValue}
+        disabled={currentPath !== "/preview" ? false : true}
+        onChange={inputHandler}
+      />
     </div>
   );
 };

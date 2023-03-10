@@ -1,62 +1,52 @@
-import { useSelector } from "react-redux";
 import CheckBoxAnswer from "./optionList/CheckboxAnswer";
 import RadioAnswer from "./optionList/RadioAnswer";
 import DropdownAnswer from "./optionList/DropdownAnswer";
 import { UpdateType, AnswerType } from "../../../type/types";
 
-import { RootState } from "../../../store/store";
-
 const PreMultipleAnswer = ({
-  questionId,
-  selectedOption,
+  option,
+  multiAnswerList,
   questionUpdateHandler,
 }: {
-  questionId: string;
-  selectedOption: string;
+  option: string;
+  multiAnswerList: AnswerType[];
   questionUpdateHandler: UpdateType;
 }) => {
-  const questionList = useSelector(
-    (state: RootState) => state.questionList.list
-  );
-  const answerList = questionList.filter(
-    (question) => question.id === questionId
-  )[0].multiAnswer;
-
   return (
     <>
-      {selectedOption === "checkbox" &&
-        answerList.map((ele: AnswerType) => {
+      {option === "checkbox" &&
+        multiAnswerList.map((ele: AnswerType) => {
           const { id, content } = ele;
           return (
             <div key={id} className="flex justify-between items-center my-2">
               <CheckBoxAnswer
                 answerId={id}
                 answerContent={content}
-                answerList={answerList}
+                multiAnswerList={multiAnswerList}
                 questionUpdateHandler={questionUpdateHandler}
               />
             </div>
           );
         })}
 
-      {selectedOption === "multiple" &&
-        answerList.map((ele: AnswerType) => {
+      {option === "multiple" &&
+        multiAnswerList.map((ele: AnswerType) => {
           const { id, content } = ele;
           return (
             <div key={id} className="flex justify-between items-center my-2">
               <RadioAnswer
                 answerId={id}
                 answerContent={content}
-                answerList={answerList}
+                multiAnswerList={multiAnswerList}
                 questionUpdateHandler={questionUpdateHandler}
               />
             </div>
           );
         })}
 
-      {selectedOption === "dropdown" && (
+      {option === "dropdown" && (
         <DropdownAnswer
-          answerList={answerList}
+          multiAnswerList={multiAnswerList}
           questionUpdateHandler={questionUpdateHandler}
         />
       )}

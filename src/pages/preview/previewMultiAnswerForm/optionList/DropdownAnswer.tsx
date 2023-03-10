@@ -2,18 +2,18 @@ import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { SelectChangeEvent } from "@mui/material";
 import { UpdateType, AnswerType } from "../../../../type/types";
 interface Props {
-  answerList: AnswerType[];
+  multiAnswerList: AnswerType[];
   questionUpdateHandler: UpdateType;
 }
 
-const DropdownAnswer = ({ answerList, questionUpdateHandler }: Props) => {
-  const checkedAnswer = answerList.find((answer) => answer.checked);
+const DropdownAnswer = ({ multiAnswerList, questionUpdateHandler }: Props) => {
+  const checkedAnswer = multiAnswerList.find((answer) => answer.checked);
   const checkedState = checkedAnswer ? checkedAnswer.content : "";
 
   const handleChange = (event: SelectChangeEvent) => {
     const selectedValue = event.target.value as string;
 
-    const newAnswerList = answerList.map((answer) =>
+    const newAnswerList = multiAnswerList.map((answer) =>
       answer.content === selectedValue
         ? { ...answer, checked: true }
         : { ...answer, checked: false }
@@ -27,7 +27,7 @@ const DropdownAnswer = ({ answerList, questionUpdateHandler }: Props) => {
         <InputLabel>Select an option</InputLabel>
         <FormControl fullWidth>
           <Select value={checkedState} onChange={handleChange}>
-            {answerList.map((ele) => {
+            {multiAnswerList.map((ele) => {
               const { id, content } = ele;
               if (!content) return;
               return (

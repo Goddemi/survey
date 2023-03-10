@@ -3,7 +3,7 @@ import { UpdateType, AnswerType } from "../../../../../../../type/types";
 
 interface Props {
   answerId: string;
-  answerList: AnswerType[];
+  multiAnswerList: AnswerType[];
   answerRef: React.RefObject<HTMLInputElement>;
   questionUpdateHandler: UpdateType;
   addAnswerToList: () => void;
@@ -12,7 +12,7 @@ interface Props {
 
 const AnswerInput = ({
   answerId,
-  answerList,
+  multiAnswerList,
   answerRef,
   questionUpdateHandler,
   addAnswerToList,
@@ -20,7 +20,7 @@ const AnswerInput = ({
 }: Props) => {
   const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
-    const newAnswerList = answerList.map((answer) =>
+    const newAnswerList = multiAnswerList.map((answer) =>
       answerId === answer.id ? { ...answer, content: inputValue } : answer
     );
     questionUpdateHandler({ multiAnswer: newAnswerList });

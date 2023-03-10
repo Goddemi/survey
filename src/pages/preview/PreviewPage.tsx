@@ -14,8 +14,8 @@ const PreviewPage = () => {
     <form className="flex flex-col items-center ">
       <Header />
       <div className="relative">
-        {questionList.map((ele: QuestionType) => {
-          return <QuestionForm key={ele.id} id={ele.id} data={ele} />;
+        {questionList.map((question: QuestionType) => {
+          return <QuestionForm key={question.id} data={question} />;
         })}
       </div>
       <LinkBtn to={"/preview/submit"} />

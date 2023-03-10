@@ -1,18 +1,18 @@
 import { XIcon } from "../../../../../../../icons/Icons";
 import { AnswerType, UpdateType } from "../../../../../../../type/types";
 interface Props {
-  answerList: AnswerType[];
+  multiAnswerList: AnswerType[];
   elementId: string;
   questionUpdateHandler: UpdateType;
 }
 
 const DeleteAnswer = ({
-  answerList,
+  multiAnswerList,
   elementId,
   questionUpdateHandler,
 }: Props) => {
   const handleDelete = (id: string) => {
-    const deletedAnswers = answerList.filter((answer) => answer.id !== id);
+    const deletedAnswers = multiAnswerList.filter((answer) => answer.id !== id);
     questionUpdateHandler({ multiAnswer: deletedAnswers });
   };
   return (

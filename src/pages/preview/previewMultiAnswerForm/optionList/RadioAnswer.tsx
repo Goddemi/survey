@@ -4,21 +4,22 @@ import { UpdateType, AnswerType } from "../../../../type/types";
 interface Props {
   answerId: string;
   answerContent: any;
-  answerList: AnswerType[];
+  multiAnswerList: AnswerType[];
   questionUpdateHandler: UpdateType;
 }
 
 const RadioAnswer = ({
   answerId,
   answerContent,
-  answerList,
+  multiAnswerList,
   questionUpdateHandler,
 }: Props) => {
   const checkedState =
-    answerList.filter((answer) => answerId === answer.id)[0].checked || false;
+    multiAnswerList.filter((answer) => answerId === answer.id)[0].checked ||
+    false;
 
   const handleCheck = () => {
-    const newAnswerList = answerList.map((answer) =>
+    const newAnswerList = multiAnswerList.map((answer) =>
       answerId === answer.id
         ? { ...answer, checked: true }
         : { ...answer, checked: false }

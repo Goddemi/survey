@@ -4,12 +4,12 @@ import { OptionType } from "../../../../type/types";
 
 interface PropsType {
   currentPath: string;
-  questionUpdateHandler: any;
   selectedOption: OptionType;
+  questionUpdateHandler: any;
 }
 
 const OptionSelectBox = (props: PropsType) => {
-  const { currentPath, questionUpdateHandler, selectedOption } = props;
+  const { currentPath, selectedOption, questionUpdateHandler } = props;
   const optionList = ["short", "long", "multiple", "checkbox", "dropdown"];
 
   const optionHandler = (event: SelectChangeEvent) => {
@@ -18,41 +18,27 @@ const OptionSelectBox = (props: PropsType) => {
   };
 
   return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
-        {currentPath === "/preview" ? (
+    <>
+      <Box sx={{ minWidth: 120 }}>
+        <FormControl fullWidth>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={selectedOption}
-            disabled
-          >
-            {optionList.map((ele) => {
-              return (
-                <MenuItem value={ele} key={ele}>
-                  {ele}
-                </MenuItem>
-              );
-            })}
-          </Select>
-        ) : (
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            value={selectedOption}
+            disabled={currentPath !== "/preview" ? false : true}
             onChange={optionHandler}
           >
-            {optionList.map((ele) => {
+            {optionList.map((option) => {
               return (
-                <MenuItem value={ele} key={ele}>
-                  {ele}
+                <MenuItem value={option} key={option}>
+                  {option}
                 </MenuItem>
               );
             })}
           </Select>
-        )}
-      </FormControl>
-    </Box>
+        </FormControl>
+      </Box>
+    </>
   );
 };
 
