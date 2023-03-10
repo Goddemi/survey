@@ -21,7 +21,7 @@ const QuestionForm = ({ data }: { data: QuestionType }) => {
   };
 
   return (
-    <div className="w-[900px] min-w-max my-2 p-5 px-7 bg-white rounded-lg  ">
+    <div className="w-[900px] min-w-max my-2 p-5 px-7 bg-white rounded-lg">
       <div className="flex justify-between items-end">
         <QuestionName
           currentPath={currentPath}
@@ -40,7 +40,7 @@ const QuestionForm = ({ data }: { data: QuestionType }) => {
         data={data}
         questionUpdateHandler={questionUpdateHandler}
       />
-      {currentPath !== "/preview" && (
+      {currentPath === "/" && (
         <div className="w-full flex justify-end items-center border-t-2 border-solid border-gray-200 mt-10 pt-3">
           <CopyBtn questionId={id} />
           <DeleteBtn questionId={id} />

@@ -1,25 +1,26 @@
-import { useEffect } from "react";
+import { useState } from "react";
 import { UpdateType } from "../../../../../type/types";
 
 const TextAnswer = ({
   currentPath,
   option,
+  textAnswer,
   questionUpdateHandler,
 }: {
-  option: string;
-  questionUpdateHandler: UpdateType;
   currentPath: string;
+  option: string;
+  textAnswer: string;
+  questionUpdateHandler: UpdateType;
 }) => {
+  const [inputValue, setInputValue] = useState(textAnswer);
+
   const inputHandler = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const inputValue = event.target.value;
+    setInputValue(inputValue);
     questionUpdateHandler({ textAnswer: inputValue });
   };
-
-  useEffect(() => {
-    questionUpdateHandler({ textAnswer: "" });
-  }, []);
 
   return (
     <>
@@ -27,6 +28,7 @@ const TextAnswer = ({
         <input
           className="w-full my-2 py-1 border-b border-gray-300 focus:outline-none focus:border-orange-500"
           placeholder="답변 입력"
+          value={inputValue}
           disabled={currentPath !== "/preview" ? true : false}
           onChange={inputHandler}
         />
@@ -36,6 +38,7 @@ const TextAnswer = ({
           cols={60}
           className="w-full my-2 py-1 border-b border-gray-300 focus:outline-none"
           placeholder="답변 입력"
+          value={inputValue}
           disabled={currentPath !== "/preview" ? true : false}
           onChange={inputHandler}
         ></textarea>

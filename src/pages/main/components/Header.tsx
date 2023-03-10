@@ -31,14 +31,14 @@ const Header = () => {
           className="w-full py-2 text-3xl border-b border-gray-300 focus:outline-none focus:border-orange-500"
           placeholder="제목 없는 설문지"
           value={title}
-          disabled={currentPath !== "/preview" ? false : true}
+          disabled={currentPath === "/" ? false : true}
           onChange={surveyTitleHander}
         />
         <input
           className="w-full my-5 py-1 border-b border-gray-300 focus:outline-none focus:border-orange-500"
           placeholder="설문지 설명"
           value={description}
-          disabled={currentPath !== "/preview" ? false : true}
+          disabled={currentPath === "/" ? false : true}
           onChange={surveyDescriptionHandler}
         />
       </div>

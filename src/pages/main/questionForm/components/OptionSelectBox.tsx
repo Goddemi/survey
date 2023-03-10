@@ -25,7 +25,7 @@ const OptionSelectBox = (props: PropsType) => {
             labelId="demo-simple-select-label"
             id="demo-simple-select"
             value={selectedOption}
-            disabled={currentPath !== "/preview" ? false : true}
+            disabled={currentPath === "/" ? false : true}
             onChange={optionHandler}
           >
             {optionList.map((option) => {

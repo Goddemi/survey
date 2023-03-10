@@ -1,8 +1,8 @@
+import { useEffect } from "react";
 import TextAnswer from "./optionList/TextAnswer";
 import MultipleAnswer from "./optionList/multipleAnswer/MultipleAnswer";
 import PreMultipleAnswer from "../../../preview/previewMultiAnswerForm/PreviewMultiAnswer";
 import { UpdateType, QuestionType, AnswerType } from "../../../../type/types";
-import { useEffect, useState } from "react";
 
 const AnswerForm = ({
   currentPath,
@@ -51,6 +51,7 @@ const AnswerForm = ({
         <TextAnswer
           currentPath={currentPath}
           option={option}
+          textAnswer={textAnswer}
           questionUpdateHandler={questionUpdateHandler}
         />
       )}

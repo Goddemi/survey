@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import Header from "../main/components/Header";
-import QuestionForm from "../main/questionForm/QuestionForm";
+import SubmitForm from "./SubmitForm";
 import { RootState } from "../../store/store";
 import { QuestionType } from "../../type/types";
 
@@ -14,7 +14,7 @@ const SubmitPage = () => {
       <Header />
       <div className="relative">
         {questionList.map((question: QuestionType) => {
-          return <QuestionForm key={question.id} data={question} />;
+          return <SubmitForm key={question.id} data={question} />;
         })}
       </div>
     </div>
