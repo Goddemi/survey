@@ -1,7 +1,7 @@
 import { Checkbox, FormControlLabel } from "@mui/material";
 import { RadioButtonChecked, RadioButtonUnchecked } from "@mui/icons-material";
 import { UpdateType, AnswerType } from "../../../../type/types";
-import { useEffect } from "react";
+
 interface Props {
   answerId: string;
   answerContent: any;
@@ -27,13 +27,6 @@ const RadioAnswer = ({
     );
     questionUpdateHandler({ multiAnswer: newAnswerList });
   };
-
-  useEffect(() => {
-    const initialAnswerList = multiAnswerList.map((answer) => {
-      return { ...answer, checked: false };
-    });
-    questionUpdateHandler({ multiAnswer: initialAnswerList });
-  }, []);
 
   return (
     <>

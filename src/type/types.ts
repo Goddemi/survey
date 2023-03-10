@@ -7,6 +7,7 @@ export interface QuestionType {
   textAnswer: string;
   multiAnswer: AnswerType[];
   essential: boolean;
+  essentialValueChecker: boolean;
 }
 export interface AnswerType {
   id: string;

@@ -14,6 +14,7 @@ const initialState: QuestionListType = {
       textAnswer: "",
       multiAnswer: [{ id: "firstAnswer", content: "", checked: false }],
       essential: true,
+      essentialValueChecker: false,
     },
   ],
 };
@@ -28,7 +29,7 @@ export const questionListSlice = createSlice({
       state.list = [...state.list, newQuestion];
     },
 
-    updateQuestionList: (state, action: PayloadAction<any>) => {
+    updateQuestionList: (state, action: PayloadAction<QuestionType>) => {
       state.list = state.list.map((question: QuestionType) => {
         if (question.id === action.payload.id) {
           return {
@@ -41,13 +42,13 @@ export const questionListSlice = createSlice({
       });
     },
 
-    deleteQuestionList: (state, action: PayloadAction<any>) => {
+    deleteQuestionList: (state, action: PayloadAction<string>) => {
       state.list = state.list.filter((element: QuestionType) => {
         return element.id !== action.payload;
       });
     },
 
-    copyQuestionList: (state, action: PayloadAction<any>) => {
+    copyQuestionList: (state, action: PayloadAction<string>) => {
       const copyQuestion = state.list.filter((element: QuestionType) => {
         return element.id === action.payload;
       });

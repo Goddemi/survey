@@ -13,24 +13,28 @@ const AnswerForm = ({
   data: QuestionType;
   questionUpdateHandler: UpdateType;
 }) => {
-  const { option, essential, textAnswer, multiAnswer } = data;
+  const { option, essential, textAnswer, multiAnswer, essentialValueChecker } =
+    data;
 
   const textOption = ["short", "long"].includes(option);
   const multiOption = ["multiple", "checkbox", "dropdown"].includes(option);
 
-  const [essentialChecker, setEssentialChecker] = useState(false);
-
   let checkedAnswer: AnswerType | undefined;
   if (multiOption) {
+    // 체크되어있는 객관식 보기가 있는지 확인
     checkedAnswer = multiAnswer.find((answer) => answer.checked === true);
   }
 
   useEffect(() => {
     if (textOption) {
-      textAnswer ? setEssentialChecker(true) : setEssentialChecker(false);
+      textAnswer
+        ? questionUpdateHandler({ essentialValueChecker: true })
+        : questionUpdateHandler({ essentialValueChecker: false });
     }
     if (multiOption) {
-      checkedAnswer ? setEssentialChecker(true) : setEssentialChecker(false);
+      checkedAnswer
+        ? questionUpdateHandler({ essentialValueChecker: true })
+        : questionUpdateHandler({ essentialValueChecker: false });
     }
   }, [textAnswer, checkedAnswer]);
 
@@ -39,7 +43,7 @@ const AnswerForm = ({
       <div className="mt-2 text-sm text-red-500">
         {currentPath === "/preview" &&
           essential &&
-          !essentialChecker &&
+          !essentialValueChecker &&
           "* 필수 입력 사항입니다."}
       </div>
 

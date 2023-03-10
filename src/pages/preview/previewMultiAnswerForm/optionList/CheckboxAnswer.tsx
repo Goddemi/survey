@@ -1,5 +1,4 @@
 import { Checkbox, FormControlLabel } from "@mui/material";
-import { useEffect } from "react";
 import { UpdateType, AnswerType } from "../../../../type/types";
 
 interface Props {
@@ -25,13 +24,6 @@ const CheckBoxAnswer = ({
     );
     questionUpdateHandler({ multiAnswer: newAnswerList });
   };
-
-  useEffect(() => {
-    const initialAnswerList = multiAnswerList.map((answer) => {
-      return { ...answer, checked: false };
-    });
-    questionUpdateHandler({ multiAnswer: initialAnswerList });
-  }, []);
 
   return (
     <>
