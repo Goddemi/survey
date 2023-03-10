@@ -1,15 +1,14 @@
+import { useEffect } from "react";
 import { UpdateType } from "../../../../../type/types";
 
 const TextAnswer = ({
   currentPath,
   option,
   questionUpdateHandler,
-  setEssentialSatisFied,
 }: {
   option: string;
   questionUpdateHandler: UpdateType;
   currentPath: string;
-  setEssentialSatisFied: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
   const inputHandler = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -17,6 +16,11 @@ const TextAnswer = ({
     const inputValue = event.target.value;
     questionUpdateHandler({ textAnswer: inputValue });
   };
+
+  useEffect(() => {
+    questionUpdateHandler({ textAnswer: "" });
+  }, []);
+
   return (
     <>
       {option === "short" ? (

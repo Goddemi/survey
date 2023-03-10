@@ -1,5 +1,6 @@
 import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { SelectChangeEvent } from "@mui/material";
+import { useEffect } from "react";
 import { UpdateType, AnswerType } from "../../../../type/types";
 interface Props {
   multiAnswerList: AnswerType[];
@@ -20,6 +21,13 @@ const DropdownAnswer = ({ multiAnswerList, questionUpdateHandler }: Props) => {
     );
     questionUpdateHandler({ multiAnswer: newAnswerList });
   };
+
+  useEffect(() => {
+    const initialAnswerList = multiAnswerList.map((answer) => {
+      return { ...answer, checked: false };
+    });
+    questionUpdateHandler({ multiAnswer: initialAnswerList });
+  }, []);
 
   return (
     <div className="mt-5 ml-3">

@@ -12,7 +12,7 @@ const SurveyPage = () => {
   );
 
   return (
-    <form className="flex flex-col items-center ">
+    <div className="flex flex-col items-center ">
       <Header />
       <div className="relative">
         {questionList.map((question: QuestionType) => {
@@ -21,7 +21,7 @@ const SurveyPage = () => {
         <Addbar />
       </div>
       <LinkBtn to={"/preview"} />
-    </form>
+    </div>
   );
 };
 

@@ -11,7 +11,7 @@ const PreviewPage = () => {
   );
 
   return (
-    <form className="flex flex-col items-center ">
+    <div className="flex flex-col items-center ">
       <Header />
       <div className="relative">
         {questionList.map((question: QuestionType) => {
@@ -19,7 +19,7 @@ const PreviewPage = () => {
         })}
       </div>
       <LinkBtn to={"/preview/submit"} />
-    </form>
+    </div>
   );
 };
 
