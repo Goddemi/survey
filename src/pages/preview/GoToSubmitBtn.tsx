@@ -5,7 +5,10 @@ const GoToSubmitBtn = ({ questionList }: { questionList: QuestionType[] }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    const essentialChecker = questionList.find(
+    const essentialQuestion = questionList.filter(
+      (question) => question.essential === true
+    );
+    const essentialChecker = essentialQuestion.find(
       (question) => question.essentialValueChecker === false
     );
     if (essentialChecker) {

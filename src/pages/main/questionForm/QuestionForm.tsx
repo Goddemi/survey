@@ -14,7 +14,7 @@ const QuestionForm = ({ data }: { data: QuestionType }) => {
   const currentPath = location.pathname;
 
   const dispatch = useDispatch();
-  const { id, questionName, option } = data;
+  const { id, questionName, option, essential } = data;
 
   const questionUpdateHandler = (ele: UpdatedElementType) => {
     dispatch(updateQuestionList({ ...data, ...ele }));
@@ -44,7 +44,10 @@ const QuestionForm = ({ data }: { data: QuestionType }) => {
         <div className="w-full flex justify-end items-center border-t-2 border-solid border-gray-200 mt-10 pt-3">
           <CopyBtn questionId={id} />
           <DeleteBtn questionId={id} />
-          <EssentialBtn questionUpdateHandler={questionUpdateHandler} />
+          <EssentialBtn
+            essential={essential}
+            questionUpdateHandler={questionUpdateHandler}
+          />
         </div>
       )}
     </div>
