@@ -10,15 +10,22 @@ const SurveyPage = () => {
   const questionList = useSelector(
     (state: RootState) => state.questionList.list
   );
+  console.log(questionList);
 
   return (
     <div className="flex flex-col items-center ">
       <Header />
-      <div className="relative">
+      <div className="relative flex flex-col items-center">
         {questionList.map((question: QuestionType) => {
           return <QuestionForm key={question.id} data={question} />;
         })}
-        <Addbar />
+        <div
+          className={
+            questionList.length !== 0 ? "absolute -right-11 bottom-2" : ""
+          }
+        >
+          <Addbar />
+        </div>
       </div>
       <GoToPreviewBtn />
     </div>
