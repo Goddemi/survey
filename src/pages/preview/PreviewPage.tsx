@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import Header from "../main/components/Header";
 import QuestionForm from "../main/questionForm/QuestionForm";
+import FormInitialize from "./FormInitialize";
 import GoToSubmitBtn from "./GoToSubmitBtn";
 import { RootState } from "../../store/store";
 import { QuestionType } from "../../type/types";
@@ -18,7 +19,10 @@ const PreviewPage = () => {
           return <QuestionForm key={question.id} data={question} />;
         })}
       </div>
-      <GoToSubmitBtn questionList={questionList} />
+      <div>
+        <FormInitialize />
+        <GoToSubmitBtn questionList={questionList} />
+      </div>
     </div>
   );
 };

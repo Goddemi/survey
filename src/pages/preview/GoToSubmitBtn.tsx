@@ -16,7 +16,7 @@ const GoToSubmitBtn = ({ questionList }: { questionList: QuestionType[] }) => {
 
   return (
     <button
-      className="mt-3 mb-7 p-4 bg-orange-500 text-white font-semibold rounded-lg "
+      className="mx-2 mt-3 mb-7 p-4 bg-orange-500 text-white font-semibold rounded-lg "
       onClick={handleNavigate}
     >
       제출

@@ -17,7 +17,9 @@ const SubmitForm = ({ data }: { data: QuestionType }) => {
           {textOption && <span>{textAnswer}</span>}
           {multiOption &&
             checkedAnswers.map((ele) => (
-              <span className="mr-3">{ele.content}</span>
+              <span key={ele.id} className="mr-3">
+                {ele.content}
+              </span>
             ))}
         </span>
       </div>

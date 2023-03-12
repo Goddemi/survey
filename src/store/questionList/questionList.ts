@@ -56,6 +56,16 @@ export const questionListSlice = createSlice({
       const newCopyQuestion = { ...copyQuestion[0], id: newId };
       state.list = [...state.list, newCopyQuestion];
     },
+
+    resetQuestionList: (state) => {
+      state.list = state.list.map((question: QuestionType) => {
+        const multiAnswer = question.multiAnswer;
+        const newMultiAnswer = multiAnswer.map((answer) => {
+          return { ...answer, checked: false };
+        });
+        return { ...question, textAnswer: "", multiAnswer: newMultiAnswer };
+      });
+    },
   },
 });
 
@@ -64,6 +74,7 @@ export const {
   deleteQuestionList,
   updateQuestionList,
   copyQuestionList,
+  resetQuestionList,
 } = questionListSlice.actions;
 
 export default questionListSlice.reducer;

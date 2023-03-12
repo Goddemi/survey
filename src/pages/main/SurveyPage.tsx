@@ -10,7 +10,6 @@ const SurveyPage = () => {
   const questionList = useSelector(
     (state: RootState) => state.questionList.list
   );
-  console.log(questionList);
 
   return (
     <div className="flex flex-col items-center ">
